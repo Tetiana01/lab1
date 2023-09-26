@@ -14,6 +14,7 @@ namespace lab1
         int count;
 
         // Adding the element
+        // Change the link to the head variable
         public void AddLast(T data)
         {
             DequeElement<T> node = new DequeElement<T>(data);
@@ -29,6 +30,7 @@ namespace lab1
             count++;
         }
 
+        // Change the link to the tail variable
         public void AddFirst(T data)
         {
             DequeElement<T> node = new DequeElement<T>(data);
@@ -43,6 +45,7 @@ namespace lab1
         }
 
         // Removing the element
+        // Change the link to the first element
         public T RemoveFirst()
         {
             if (count == 0)
@@ -61,6 +64,7 @@ namespace lab1
             return output;
         }
 
+        // Change the link to the previous element
         public T RemoveLast()
         {
             if (count == 0)
