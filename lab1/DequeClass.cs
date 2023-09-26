@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab1
 {
-    class Deque<T> : IEnumerable<T>
+    class DequeClass<T> : IEnumerable<T>
     {
         DequeElement<T> head;
         DequeElement<T> tail;
@@ -77,6 +77,48 @@ namespace lab1
             }
             count--;
             return output;
+        }
+
+        public int Count { get { return count; } }
+        public bool IsEmpty { get { return count == 0; } }
+
+        public T First
+        {
+            get
+            {
+                if (IsEmpty)
+                    throw new InvalidOperationException();
+                return head.Data;
+            }
+        }
+
+        public T Last
+        {
+            get
+            {
+                if (IsEmpty)
+                    throw new InvalidOperationException();
+                return tail.Data;
+            }
+        }
+
+        public void Clear()
+        {
+            head = null;
+            tail = null;
+            count = 0;
+        }
+
+        public bool Contains(T data)
+        {
+            DequeElement<T> current = head;
+            while (current != null)
+            {
+                if (current.Data.Equals(data))
+                    return true;
+                current = current.Next;
+            }
+            return false;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
