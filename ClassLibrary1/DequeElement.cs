@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace lab1
+namespace ClassLibrary1
 {
-    class DequeElement<T>
+    public class DequeElement<T>
     {
         public DequeElement(T data)
         {

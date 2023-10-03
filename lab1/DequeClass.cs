@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary1;
 
 namespace lab1
 {
@@ -125,12 +126,12 @@ namespace lab1
             return false;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator() // return object
         {
             return ((IEnumerable)this).GetEnumerator();
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        IEnumerator<T> IEnumerable<T>.GetEnumerator() //return iterrator
         {
             DequeElement<T> current = head;
             while (current != null)
