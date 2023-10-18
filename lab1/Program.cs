@@ -7,6 +7,17 @@ namespace lab1
         static void Main(string[] args)
         {
             DequeClass<int> numbers = new DequeClass<int>();
+
+            numbers.ItemAdded += (sender, e) =>
+            {
+                Console.WriteLine($"Element {e.AddedItem} is added to the deque \n");
+            };
+
+            numbers.ItemRemoved += (sender, e) =>
+            {
+                Console.WriteLine($"Element {e.RemovedItem} is removed from the deque \n");
+            };
+
             numbers.AddFirst(2);
             numbers.AddLast(3);
             numbers.AddLast(4);
@@ -19,10 +30,8 @@ namespace lab1
             Console.WriteLine("\nThe count of Deque: {0} \n", numbers.Count);
 
             int removedItem1 = numbers.RemoveFirst();
-            Console.WriteLine("\nDelete the first: {0} \n", removedItem1);
 
             int removedItem2 = numbers.RemoveLast();
-            Console.WriteLine("\nDelete the last: {0} \n", removedItem2);
 
             Console.WriteLine("\nShow the new first element: {0} \n", numbers.First);
 
@@ -38,10 +47,15 @@ namespace lab1
             Console.WriteLine("\nNew Deque: \n");
 
             numbers.AddFirst(6);
+            numbers.AddFirst(6);
             numbers.AddLast(7);
+
+            bool isIn = numbers.Contains(6);
+            Console.WriteLine("\nDeque has 6: {0} \n", isIn);
 
             foreach (int s in numbers)
                 Console.WriteLine(s);
+
         }
     }
 }
